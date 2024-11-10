@@ -6,13 +6,19 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "scheme": "crystal-clash",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "usesAppleSignIn": true,
+      "supportsTablet": true,
+      "bundleIdentifier": "com.skepticalrook.crystalclash"
     },
     "android": {
       "adaptiveIcon": {
@@ -22,6 +28,17 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "72580cef-8849-43d0-96cc-064f913ead4f"
+      },
+      "snapClientId": "315074aa-be1f-4976-92bf-1202625a3c51"
+    },
+    "owner": "skepticalrook",
+    "plugins": [
+      "expo-font",
+      "expo-secure-store"
+    ]
   }
 }
