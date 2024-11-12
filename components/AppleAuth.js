@@ -68,16 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    height: hp(7), 
-    width: wp(80), 
-    borderWidth: 2, 
-    borderRadius: 10, 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    alignSelf: 'center', 
-    marginTop: hp(3), 
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
-    paddingHorizontal: '15%'
-  },
+    width: '100%',
+    height: '100%',  // Fill container
+  }
 });

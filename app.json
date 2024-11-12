@@ -16,9 +16,9 @@
       "config": {
         "usesNonExemptEncryption": false
       },
+      "bundleIdentifier": "com.skepticalrook.crystalclash",
       "usesAppleSignIn": true,
-      "supportsTablet": true,
-      "bundleIdentifier": "com.skepticalrook.crystalclash"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
