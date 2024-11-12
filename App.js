@@ -130,18 +130,12 @@ export const Layout = () => {
       <SafeAreaProvider>
         <NavigationContainer>
             {isAuthenticated ? (
-              // Authenticated Stack
               <TabNavigator/>
             ) : (
               <Stack.Navigator>
                 <Stack.Screen 
                   name="Login" 
                   component={LogIn}
-                  options={{ headerShown: false }}
-                />
-                <Stack.Screen 
-                  name="Register" 
-                  component={SignUp}
                   options={{ headerShown: false }}
                 />
               </Stack.Navigator>

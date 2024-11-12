@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.skepticalrook.crystalclash"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -32,14 +33,19 @@
     "extra": {
       "eas": {
         "projectId": "72580cef-8849-43d0-96cc-064f913ead4f"
-      },
-      "snapClientId": "315074aa-be1f-4976-92bf-1202625a3c51"
+      }
     },
     "owner": "skepticalrook",
     "plugins": [
       "expo-font",
       "expo-secure-store",
-      "expo-apple-authentication"
+      "expo-apple-authentication",
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.crystal-clash-441519"
+        }
+      ]
     ]
   }
 }
