@@ -16,6 +16,13 @@
       "config": {
         "usesNonExemptEncryption": false
       },
+      "infoPlist": {
+      "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": ["com.googleusercontent.apps.45390714949-5hadkcesd37cki74b6lv9p674rdiipj9"]
+          }
+        ]
+      },
       "bundleIdentifier": "com.skepticalrook.crystalclash",
       "usesAppleSignIn": true,
       "supportsTablet": true

@@ -28,6 +28,7 @@ import TabBarButton from './components/TabBarButton';
 import ProfileSettings from './screens/Authenticated/ProfileSettings';
 import Lobby from './screens/Authenticated/Lobby';
 import Game from './screens/Authenticated/Game';
+import UsernameScreen from './screens/UnAuthenticated/UsernameScreen';
 
 // Initialize screens here to avoid navigation errors
 const Stack = createNativeStackNavigator();
@@ -130,12 +131,18 @@ export const Layout = () => {
       <SafeAreaProvider>
         <NavigationContainer>
             {isAuthenticated ? (
+              // Authenticated Stack
               <TabNavigator/>
             ) : (
               <Stack.Navigator>
                 <Stack.Screen 
                   name="Login" 
                   component={LogIn}
+                  options={{ headerShown: false }}
+                />
+                <Stack.Screen 
+                  name="UsernameScreen" 
+                  component={UsernameScreen}
                   options={{ headerShown: false }}
                 />
               </Stack.Navigator>

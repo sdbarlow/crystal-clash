@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import AppleAuth from '../../components/AppleAuth';
 import SnapAuth from '../../components/SnapAuth';
+import GoogleAuth from '../../components/GoogleAuth';
 
 function LogIn() {
     const [isLoading, setIsLoading] = React.useState(false);
@@ -63,11 +64,7 @@ function LogIn() {
         </View>
         <View style={{height: hp(35), width: '100%', backgroundColor: 'white', borderTopRightRadius: 20}}>
             <SnapAuth/>
-            <Pressable style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1, height: hp(7), width: wp(80), backgroundColor: 'black', borderRadius: 5, justifyContent: 'center', overflow: 'hidden', alignItems: 'center', alignSelf: 'center', marginTop: hp(3)})}>
-                <LinearGradient colors={['#740EFF', '#350DFF']} style={{width: '100%', height: '100%', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: '15%'}}>
-                    <FontAwesomeIcon icon={faMobileNotch} size={30} color='white' /><Text style={{color: 'white', fontSize: 20, fontWeight: 500}}>Continue with Phone</Text>
-                </LinearGradient>
-            </Pressable>
+            <GoogleAuth/>
             <AppleAuth setIsLoading={setIsLoading}/>
         </View>
     </View>
