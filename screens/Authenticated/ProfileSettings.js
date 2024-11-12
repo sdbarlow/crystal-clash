@@ -1,13 +1,59 @@
 import React from 'react'
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, Alert } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowLeft } from '@fortawesome/pro-regular-svg-icons';
 import { faChevronRight } from '@fortawesome/pro-regular-svg-icons';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useAuth } from '../../app/context/AuthContext';
+import axios from 'axios';
+import * as SecureStore from 'expo-secure-store';
 
 function ProfileSettings({ navigation }) {
     const { logout } = useAuth();
+
+    const handleDeleteAccount = async () => {
+        Alert.alert(
+            'Delete Account',
+            'Are you sure you want to delete your account? This action cannot be undone.',
+            [
+                {
+                    text: 'Cancel',
+                    style: 'cancel'
+                },
+                {
+                    text: 'Delete',
+                    style: 'destructive',
+                    onPress: async () => {
+                        try {
+                            const token = await SecureStore.getItemAsync('userToken');
+                            
+                            const response = await axios.delete(
+                                'https://crystal-clash-backend.onrender.com/delete-account',
+                                {
+                                    headers: {
+                                        'Authorization': `Bearer ${token}`,
+                                        'Content-Type': 'application/json'
+                                    }
+                                }
+                            );
+
+                            if (response.status === 200) {
+                                await logout();
+                                Alert.alert('Success', 'Your account has been deleted.');
+                            }
+                        } catch (error) {
+                            console.error('Error deleting account:', error);
+                            Alert.alert(
+                                'Error', 
+                                'Failed to delete account. Please try again.'
+                            );
+                        }
+                    }
+                }
+            ],
+            { cancelable: true }
+        );
+    };
 
     const handleSignOut = async () => {
         try {
@@ -37,6 +83,9 @@ function ProfileSettings({ navigation }) {
         </View>
         <Pressable onPress={() => handleSignOut()} style={({ pressed }) => ({opacity: pressed ? 0.5 : 1, height: 50, width: '100%', backgroundColor: '#413F42', marginTop: '15%', borderBottomWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: '5%'})}>
             <Text style={{color: 'red', fontSize: 20, fontWeight: 500}}>Sign Out</Text>
+        </Pressable>
+        <Pressable onPress={() => handleDeleteAccount()} style={({ pressed }) => ({opacity: pressed ? 0.5 : 1, height: 50, width: '100%', backgroundColor: '#413F42', marginTop: '15%', borderBottomWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: '5%'})}>
+            <Text style={{color: 'red', fontSize: 20, fontWeight: 500}}>Delete Account</Text>
         </Pressable>
     </View>
   )

@@ -18,16 +18,17 @@ export default function AppleAuth({setIsLoading}) {
         ],
       });
 
-      // Format the Apple credential data before sending
+      console.log('credential:', credential);
+
       const userData = {
-        email: 'sethdbarlow@gmail.com',
-        fullName: {
-          givenName: 'Seth',
-          familyName: 'Barlow'
-        },
+        identityToken: credential.identityToken,
+        email: credential.email,
+        fullName: credential.fullName
       };
+
+      console.log('userData:', userData);
     
-      const response = await axios.post('http://127.0.0.1:5000/login', userData, {
+      const response = await axios.post('https://crystal-clash-backend.onrender.com/login', userData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -39,10 +40,8 @@ export default function AppleAuth({setIsLoading}) {
 
     } catch (error) {
       if (error.code === 'ERR_REQUEST_CANCELED') {
-        // handle that the user canceled the sign-in flow
         console.log('Sign-in was canceled');
       } else {
-        // handle other errors
         console.error('Login error:', error.response?.data || error.message);
         Alert.alert('Error', 'Failed to login. Please try again.');
       }
