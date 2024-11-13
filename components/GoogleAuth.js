@@ -1,6 +1,7 @@
 import React from 'react'
 import { GoogleSignin, GoogleSigninButton, statusCodes, isErrorWithCode, isSuccessResponse } from '@react-native-google-signin/google-signin'
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 GoogleSignin.configure({
     iosClientId: "45390714949-5hadkcesd37cki74b6lv9p674rdiipj9.apps.googleusercontent.com"
@@ -13,7 +14,7 @@ function GoogleAuth() {
           await GoogleSignin.hasPlayServices();
           const response = await GoogleSignin.signIn();
           if (isSuccessResponse(response)) {
-            setState({ userInfo: response.data });
+            console.log('Google sign in response:', response);
           } else {
             // sign in was cancelled by user
           }
@@ -37,10 +38,29 @@ function GoogleAuth() {
     }      
 
   return (
-    <GoogleSigninButton onPress={signIn}>
+    <View style={styles.container}>
+        <GoogleSigninButton style={styles.button} onPress={signIn}>
 
-    </GoogleSigninButton>
+        </GoogleSigninButton>
+    </View>
   )
 }
 
 export default GoogleAuth
+
+const styles = StyleSheet.create({
+    container: {
+      height: hp(7), 
+      width: wp(80), 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      alignSelf: 'center', 
+      marginTop: hp(3), 
+      flexDirection: 'row', 
+      justifyContent: 'space-between'
+    },
+    button: {
+      width: '100%',
+      height: '100%',
+    },
+  });
