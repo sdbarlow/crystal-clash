@@ -2,6 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>snapchat</string>
+        <string>bitmoji-sdk</string>
+        <string>itms-apps</string>
+    </array>
+    <key>SCSDKClientId</key>
+    <string>315074aa-be1f-4976-92bf-1202625a3c51</string>
+    <key>SCSDKRedirectUrl</key>
+    <string>crystalclash://snap-kit/oauth2</string>
+    <key>SCSDKScopes</key>
+    <array>
+        <string>snapchat-login-sdk</string>
+        <string>https://auth.snapchat.com/oauth2/api/user.display_name</string>
+        <string>https://auth.snapchat.com/oauth2/api/user.bitmoji.avatar</string>
+    </array>
     <key>CADisableMinimumFrameDurationOnPhone</key>
     <true/>
     <key>CFBundleAllowMixedLocalizations</key>
@@ -26,6 +42,16 @@
     <string>????</string>
     <key>CFBundleURLTypes</key>
     <array>
+      <dict>
+        <key>CFBundleURLName</key>
+        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>crystalclash</string>
+        </array>
+        <key>CFBundleURLRole</key>
+        <string>Editor</string>
+      </dict>
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
