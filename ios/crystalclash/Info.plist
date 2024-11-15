@@ -11,7 +11,7 @@
     <key>SCSDKClientId</key>
     <string>315074aa-be1f-4976-92bf-1202625a3c51</string>
     <key>SCSDKRedirectUrl</key>
-    <string>crystalclash://snap-kit/oauth2</string>
+    <string>crystal-clash://snap-kit/oauth2</string>
     <key>SCSDKScopes</key>
     <array>
         <string>snapchat-login-sdk</string>
