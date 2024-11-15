@@ -18,18 +18,27 @@ function Profile({ navigation }) {
               <FontAwesomeIcon icon={faGear} size={22} color="white"/>
             </Pressable>
           </View>
-          <View style={{width: wp(30), height: wp(30), borderRadius: 100, borderColor: 'white', borderWidth: 2, justifyContent: 'flex-end', alignItems: 'center', overflow: 'hidden', backgroundColor: 'black'}}>
-            <Image
-              style={{ height: '90%', width: '90%', overflow: 'hidden'}}
-              source={{ uri: 'https://storage.googleapis.com/crystalclash/BitmojiAvatar.png' }}
-              resizeMode="contain"
-            />
+          <View style={{width: wp(30), height: wp(30), justifyContent: 'flex-end', alignItems: 'center', backgroundColor: 'black'}}>
+            <View style={{width: '100%', height: '100%', borderRadius: 100, borderColor: 'white', borderWidth: 2, justifyContent: 'flex-end', alignItems: 'center', overflow: 'hidden', backgroundColor: 'black'}}>
+              <Image
+                style={{ height: '90%', width: '90%', overflow: 'hidden'}}
+                source={{ uri: 'https://storage.googleapis.com/crystalclash/BitmojiAvatar.png' }}
+                resizeMode="contain"
+              />
+            </View>
+              <View style={{width: 50, height: 50, position: 'absolute', right: -10, bottom: -10}}>
+                <Image
+                     style={{ height: '100%', width: '100%', overflow: 'hidden'}}
+                     source={{ uri: `https://storage.googleapis.com/verba_assets/Rank23x` }}
+                     resizeMode="contain"
+                   />
+              </View>
           </View>
         </View>
         <View style={{height: hp(160), width: '100%'}}>
           <View style={{height: '5%', width: '100%', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
             <View style={{width: '60%'}}>
-              <Text style={{color: 'white', fontSize: 30, fontWeight: 500}}>Seth Barlow</Text>
+              <Text style={{color: 'white', fontSize: 30, fontWeight: 700}}>Seth Barlow</Text>
             </View>
             <View style={{width: '40%', justifyContent: 'flex-end', alignItems: 'flex-end', flexDirection: 'row'}}>
               <Pressable style={({ pressed }) => ({opacity: pressed ? 0.5 : 1, paddingRight: '6%'})}>
@@ -55,7 +64,7 @@ function Profile({ navigation }) {
             </View>
           </View>
           <View style={{height: '5%', width: '100%', justifyContent: 'center'}}>
-            <Text style={{color: 'white', fontSize: 15, fontWeight: 500}}>Just a simple person living life day by day. Coffee addict ☕️. Dog lover 🐕. Foodie 🍕. Living my best life ✨.</Text>
+            <Text style={{color: 'white', fontSize: 15, fontWeight: 600}}>Just a simple person living life day by day. Coffee addict ☕️. Dog lover 🐕. Foodie 🍕. Living my best life ✨.</Text>
           </View>
           <View style={{height: '3%', width: '100%', justifyContent: 'center'}}>
             <Text style={{color: 'white', fontSize: 28, fontWeight: 700}}>Badges:</Text>
@@ -72,8 +81,8 @@ function Profile({ navigation }) {
                   {[1, 2, 3, 4, 5].map((item, index) => (
                     <View style={{height: '80%', width: wp(40)}} key={index}>
                      <Image
-                     style={{ height: '100%', width: '100%', overflow: 'hidden'}}
-                     source={{ uri: `https://storage.googleapis.com/crystalclash/Badge${item}.png` }}
+                     style={{ height: '50%', width: '50%', overflow: 'hidden'}}
+                     source={{ uri: `https://storage.googleapis.com/verba_assets/Rank${item}3x` }}
                      resizeMode="contain"
                    />
                    </View>

@@ -23,7 +23,7 @@ export default function AppleAuth({setIsLoading}) {
       const userData = {
         identityToken: credential.identityToken,
         email: credential.email,
-        fullName: credential.fullName
+        provider: 'apple'
       };
 
       // Let the backend handle the user verification
