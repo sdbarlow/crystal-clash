@@ -14,9 +14,8 @@
     <string>crystal-clash://snap-kit/oauth2</string>
     <key>SCSDKScopes</key>
     <array>
-        <string>snapchat-login-sdk</string>
-        <string>https://auth.snapchat.com/oauth2/api/user.display_name</string>
-        <string>https://auth.snapchat.com/oauth2/api/user.bitmoji.avatar</string>
+      <string>https://auth.snapchat.com/oauth2/api/user.display_name</string>
+      <string>https://auth.snapchat.com/oauth2/api/user.bitmoji.avatar</string>
     </array>
     <key>CADisableMinimumFrameDurationOnPhone</key>
     <true/>
@@ -43,15 +42,15 @@
     <key>CFBundleURLTypes</key>
     <array>
       <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+        <string>com.sethbarlow.crystal-clash</string>
         <key>CFBundleURLSchemes</key>
         <array>
-            <string>crystalclash</string>
+          <string>crystal-clash</string>
         </array>
-        <key>CFBundleURLRole</key>
-        <string>Editor</string>
-      </dict>
+		  </dict>
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>

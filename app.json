@@ -52,6 +52,12 @@
         {
           "iosUrlScheme": "com.googleusercontent.apps.crystal-clash-441519"
         }
+      ],
+      [
+        "expo-dev-launcher",
+        {
+          "launchMode": "most-recent"
+        }
       ]
     ]
   }
