@@ -7,8 +7,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [SCSDKLoginClient initializeSDK];  // Changed to simpler initialization
-  
   self.moduleName = @"main";
   self.initialProps = @{};
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
@@ -28,15 +26,14 @@
 #endif
 }
 
-// Linking API
-- (BOOL)application:(UIApplication *)application 
-            openURL:(NSURL *)url 
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    BOOL handled = [SCSDKLoginClient handleOpenUrl:url];  // Changed method name
-    if (handled) {
-        return YES;
-    }
-    return [RCTLinkingManager application:application openURL:url options:options];
+// Match exactly what's in the docs for Snapchat
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+  if ([SCSDKLoginClient application:application openUrl:url options:options]) {
+    return YES;
+  }
+  return [RCTLinkingManager application:application openURL:url options:options];
 }
 
 // Universal Links
