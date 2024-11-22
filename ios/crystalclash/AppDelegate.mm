@@ -7,11 +7,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [[SCSDKLoginClient shared] initializeWithCompletion:^{
-    // Initialization successful
-  } failure:^(NSError *error, BOOL needsUpdate) {
-    // Initialization failed
-  }];
+  [SCSDKLoginClient initializeSDK];  // Changed to simpler initialization
   
   self.moduleName = @"main";
   self.initialProps = @{};
@@ -33,13 +29,14 @@
 }
 
 // Linking API
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-  if ([SCSDKLoginClient application:application openUrl:url options:options]) {
-    return YES;
-  }
-  return [RCTLinkingManager application:application openURL:url options:options];
+- (BOOL)application:(UIApplication *)application 
+            openURL:(NSURL *)url 
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    BOOL handled = [SCSDKLoginClient handleOpenUrl:url];  // Changed method name
+    if (handled) {
+        return YES;
+    }
+    return [RCTLinkingManager application:application openURL:url options:options];
 }
 
 // Universal Links
